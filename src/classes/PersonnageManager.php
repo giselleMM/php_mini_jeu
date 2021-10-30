@@ -23,7 +23,7 @@ class PersonnageManager extends BaseManager
         var_dump($atq);
         $def = rand(10, 19);
         var_dump($def);
-        $req = $this->getDb()->prepare("INSERT INTO personnages (type, nom, pv, atq, def, cd) VALUES ('".$type."', '".$nom."', '100', ".$atq.", ".$def.", false)"); //A tester
+        $req = $this->getDb()->prepare("INSERT INTO personnages (type, nom, pv, atq, def, cd) VALUES ('".$type."', '".$nom."', '100', ".$atq.", ".$def.", false)");
         $req->execute(array(
             "type" => $type,
             "nom" => $nom,

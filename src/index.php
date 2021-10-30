@@ -20,7 +20,7 @@
         $type = $_POST['type'];
         //Vérification que le nom ne soit pas vide + nom innexistant
         if(empty($nom)){
-            echo"nom";
+            echo"Veuillez saisir un nom";
         }else{
             $personnage = new PersonnageManager($db);
             $personnage->createPerso($nom, $type);
@@ -48,10 +48,29 @@
         $nom = $var->getNom();
         $type = $var->getType();
         //echo '<pre>' , var_dump($var) , '</pre>';
-        echo "<p>Nom: ". $nom. " | Type: ". $type." <input type='button'  name='test' value='attaquer'></p>";
+
+        #A déplacer
+        /* echo "<p>Nom: ". $nom. " | Type: ". $type." <input type='button'  name='test' value='attaquer'></p>";
         if(isset($_POST['attaquer'])){
             echo $nom;
         }
-        //echo $var->getType();
+        echo $var->getType(); */
+
+        //Bouton de selection du personnage
+        echo '<p>Nom : '.$var->getNom().' | Type : '.$var->getType().' <input type="submit" name="jouer" value="Jouer ce personnage" onclick="test()"></p>';
+
+        #A retirer ?
+        echo $var->getType();
+    }
+    //Fonction quand click sur bouton "Jouer ce personnage"
+    function jouer(){
+        echo "Mettre bouton attaquer ici";
     }
 ?>
+
+<!-- Fonction qui "redirige" -->
+<script>
+    function test(){
+        document.write('<?php jouer() ?>');
+    }
+</script>

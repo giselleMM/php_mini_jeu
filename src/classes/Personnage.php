@@ -37,6 +37,13 @@ class personnage
     //fonction verif si endormie : temps restant
 
     //fonction attaque - param ennemie : modification pv/def (appel verif auto attaque)
+    /* public function attack(Personnage $personnage): void{
+            $newPv = $personnage->getPv() - ($this->getAtq() - $personnage->getDef());
+            if ($newPv > $perso->getPV()) {
+                return;
+            }
+            $personnage->setPv($newPv);
+        } */
 
     //fonction verif auto attaque
 
