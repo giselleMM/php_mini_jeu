@@ -36,15 +36,33 @@ class personnage
 
     //fonction verif si endormie : temps restant
 
-    //fonction attaque - param ennemie : modification pv/def (appel verif auto attaque)
-    /* public function attack(Personnage $personnage): void{
-            $newPv = $personnage->getPv() - ($this->getAtq() - $personnage->getDef());
-            if ($newPv > $perso->getPV()) {
+    //fonction attaque - param ennemie : modification pv/def (appel verif 
+    public function attack($adversaire): void{
+        if($this->getName() == $adversaire->getName()){
+            echo"Vous ne pouvez pas vous attaquer vous même";
+        }
+        else{
+            #Prendre les pv, l'atq et la def de l'adversaire
+            $pvRestant = $personnage->getPv() - ($this->getAtq() - $personnage->getDef());
+            if($this->getAtq() > $personnage->getDef()){ #Self atq et enemy def
+                $degats = $this->getAtq() - $personnage->getDef();
+                echo"Bravo, vous avez infligé" .$degats. "points de dégâts.";
+                $pvRestant = $personnage->getPv() - $degats;
+                echo"Il reste" .$pvRestant. "points de vie à votre adversaire.";
+                if ($pvRestant > $personnage->getPv()){
+                    return;
+                }
+                elseif($pvRestant <= 0){
+                    echo"Votre adversaire est mort";
+                }
+                $personnage->setPv($pvRestant);
                 return;
             }
-            $personnage->setPv($newPv);
-        } */
-
+            else{
+                echo"Vous n'avez pas assez d'attaque pour infliger des dégâts à votre adversaire.";
+            };
+        };
+    }
     //fonction verif auto attaque
 
     /**
