@@ -63,6 +63,11 @@ class personnage
             };
         };
     }
+
+    //Fonction qui permet de savoir quel perso joué
+    function jouer(){
+        echo $this->getNom();
+    }
     //fonction verif auto attaque
 
     /**
